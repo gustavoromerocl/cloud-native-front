@@ -7,6 +7,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { MsalService } from '@azure/msal-angular';
+import { Store } from '@ngrx/store';
+import { logout } from '../store/session/session.reducer';
 
 @Component({
   selector: 'app-layout',
@@ -27,7 +29,7 @@ export class LayoutComponent {
   isSidenavOpen = true;
   sidenavMode: 'side' | 'over' = 'side';
 
-  constructor(private msalService: MsalService) {
+  constructor(private msalService: MsalService, private store: Store) {
     this.updateSidenavMode(window.innerWidth); // Configuración inicial
   }
 
@@ -56,5 +58,8 @@ export class LayoutComponent {
     this.msalService.instance.logoutRedirect({
       postLogoutRedirectUri: window.location.origin, // Redirige a la página principal después de cerrar sesión
     });
+
+    // Limpia la ng store
+    this.store.dispatch(logout());
   }
 }
