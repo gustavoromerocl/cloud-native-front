@@ -10,13 +10,14 @@ import { InteractionType, PublicClientApplication } from '@azure/msal-browser';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { authInterceptor } from './interceptors/auth.interceptor';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
+import { environment } from './environment';
 
 
 const MSALInstanceFactory = () =>
   new PublicClientApplication({
     auth: {
-      clientId: '858b4bc0-7115-4192-a217-5de9275c3ab1',
-      authority: 'https://login.microsoftonline.com/6594e534-4a19-4085-a8e1-411ef99af367',
+      clientId: environment.clientId,
+      authority: environment.authority,
       redirectUri: window.location.origin,
     },
   });
@@ -24,7 +25,7 @@ const MSALInstanceFactory = () =>
 const MSALGuardConfigFactory = () => ({
   interactionType: InteractionType.Redirect, // Usa el flujo de redirección
   authRequest: {
-    scopes: ['user.read'], // Solicitar permisos necesarios
+    scopes: environment.scopes, // Solicitar permisos necesarios
   },
 });
 

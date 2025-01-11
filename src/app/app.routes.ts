@@ -11,7 +11,7 @@ export const routes: Routes = [
       {
         path: '',
         loadComponent: () =>
-          import('./pages/home/home.component').then((m) => m.HomeComponent),
+          import('./pages/dashboard/home.component').then((m) => m.HomeComponent),
         pathMatch: 'full',
       },
       {
