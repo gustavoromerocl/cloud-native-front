@@ -9,6 +9,8 @@ import { CommonModule } from '@angular/common';
 import { MsalService } from '@azure/msal-angular';
 import { Store } from '@ngrx/store';
 import { logout } from '../store/session/session.reducer';
+import { Observable } from 'rxjs';
+import { selectUser } from '../store/session/session.selectors';
 
 @Component({
   selector: 'app-layout',
@@ -26,11 +28,13 @@ import { logout } from '../store/session/session.reducer';
   ],
 })
 export class LayoutComponent {
+  user$: Observable<{ id: string; name?: string; role: string; email: string } | null>;
   isSidenavOpen = true;
   sidenavMode: 'side' | 'over' = 'side';
 
   constructor(private msalService: MsalService, private store: Store) {
     this.updateSidenavMode(window.innerWidth); // Configuración inicial
+    this.user$ = this.store.select(selectUser);
   }
 
   @HostListener('window:resize', ['$event'])
