@@ -6,6 +6,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { MsalService } from '@azure/msal-angular';
 
 @Component({
   selector: 'app-layout',
@@ -26,7 +27,7 @@ export class LayoutComponent {
   isSidenavOpen = true;
   sidenavMode: 'side' | 'over' = 'side';
 
-  constructor() {
+  constructor(private msalService: MsalService) {
     this.updateSidenavMode(window.innerWidth); // Configuración inicial
   }
 
@@ -48,5 +49,12 @@ export class LayoutComponent {
 
   onSidenavToggle(isOpened: boolean) {
     this.isSidenavOpen = isOpened; // Mantiene el estado sincronizado
+  }
+
+  logout() {
+    // Llamar al método de logout de MSAL
+    this.msalService.instance.logoutRedirect({
+      postLogoutRedirectUri: window.location.origin, // Redirige a la página principal después de cerrar sesión
+    });
   }
 }

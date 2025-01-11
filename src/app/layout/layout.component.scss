@@ -25,6 +25,20 @@
   box-sizing: border-box;
 }
 
+.logout-button {
+  color: #f44336; /* Rojo para indicar cierre de sesión */
+  font-weight: bold;
+  cursor: pointer;
+
+  mat-icon {
+    margin-right: 8px;
+  }
+
+  &:hover {
+    background-color: rgba(244, 67, 54, 0.1); /* Efecto hover */
+  }
+}
+
 /* Estilos responsivos para pantallas pequeñas */
 @media (max-width: 768px) {
   .mat-sidenav-content {
