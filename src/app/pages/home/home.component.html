@@ -1,1 +1,12 @@
-<p>home works!</p>
+<div>
+  <h2>Pruebas con API</h2>
+  <button (click)="getPosts()">Obtener Posts</button>
+  <button (click)="createPost()">Crear Post</button>
+  <button (click)="updatePost()">Actualizar Post</button>
+  <button (click)="deletePost()">Eliminar Post</button>
+
+  <div *ngFor="let post of posts">
+    <h3>{{ post.title }}</h3>
+    <p>{{ post.body }}</p>
+  </div>
+</div>
