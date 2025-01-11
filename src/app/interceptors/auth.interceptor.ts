@@ -21,7 +21,7 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
       switchMap((result) => {
         const clonedReq = req.clone({
           setHeaders: {
-            Authorization: `Bearer ${result.accessToken}`,
+            Authorization: `Bearer ${result.account.idToken}`,
           },
         });
         return next(clonedReq);
