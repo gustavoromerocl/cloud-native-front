@@ -1,10 +1,12 @@
 import { Routes } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';
+import { MsalGuard } from '@azure/msal-angular';
 
 export const routes: Routes = [
   {
     path: '',
     component: LayoutComponent, // El layout es el componente principal
+    canActivate: [MsalGuard],
     children: [
       {
         path: '',
