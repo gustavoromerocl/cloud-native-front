@@ -9,6 +9,7 @@ import { MSAL_GUARD_CONFIG, MSAL_INSTANCE, MsalBroadcastService, MsalGuard, Msal
 import { InteractionType, PublicClientApplication } from '@azure/msal-browser';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { authInterceptor } from './interceptors/auth.interceptor';
+import { provideStoreDevtools } from '@ngrx/store-devtools';
 
 
 const MSALInstanceFactory = () =>
@@ -38,6 +39,10 @@ export const appConfig: ApplicationConfig = {
     provideAnimationsAsync(),
     provideStore({
       session: sessionReducer,
+    }),
+    provideStoreDevtools({
+      maxAge: 25, // Número máximo de acciones para mantener en el historial
+      logOnly: true, // Cambia a false para habilitar la edición de acciones
     }),
     { provide: MSAL_INSTANCE, useFactory: MSALInstanceFactory }, // Proveedor de MSAL Instance
     { provide: MSAL_GUARD_CONFIG, useFactory: MSALGuardConfigFactory }, // Configuración de MSAL Guard
