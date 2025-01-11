@@ -1,18 +1,15 @@
 .sidenav-container {
-  height: 100vh; /* Asegura que el contenedor ocupe toda la pantalla */
+  height: 100vh;
   display: flex;
-  flex-direction: row; /* Coloca el sidenav y el contenido en línea horizontal */
 }
 
 .mat-sidenav {
-  width: 250px; /* Ancho fijo */
-  height: 100%; /* Asegura que el sidenav ocupe toda la altura del contenedor */
+  width: 250px;
+  height: 100%; /* Sidenav ocupa toda la altura */
 }
 
 .mat-sidenav-content {
-  flex: 1; /* Ocupa todo el espacio restante */
-  display: flex;
-  flex-direction: column; /* Asegura que el contenido se alinee correctamente */
+  flex: 1; /* Contenido ocupa todo el espacio restante */
 }
 
 .mat-toolbar {
@@ -23,7 +20,22 @@
 }
 
 .content-container {
-  flex: 1; /* Ocupa todo el espacio vertical restante */
+  flex: 1;
   padding: 16px;
   box-sizing: border-box;
+}
+
+/* Estilos responsivos para pantallas pequeñas */
+@media (max-width: 768px) {
+  .mat-sidenav-content {
+    transition: transform 0.3s ease; /* Animación suave al abrir/cerrar el sidenav */
+  }
+
+  .mat-sidenav {
+    width: 250px;
+  }
+
+  .mat-sidenav-container {
+    overflow: hidden; /* Evita scroll horizontal innecesario */
+  }
 }

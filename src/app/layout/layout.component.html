@@ -1,8 +1,8 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav
     #sidenav
-    mode="side"
-    opened
+    [mode]="sidenavMode"
+    [(opened)]="isSidenavOpen"
     (openedChange)="onSidenavToggle($event)"
   >
     <mat-nav-list>
@@ -13,12 +13,7 @@
       >
     </mat-nav-list>
   </mat-sidenav>
-  <mat-sidenav-content
-    [ngClass]="{
-      'sidenav-open': isSidenavOpen,
-      'sidenav-closed': !isSidenavOpen
-    }"
-  >
+  <mat-sidenav-content>
     <mat-toolbar color="primary" class="toolbar">
       <button
         mat-icon-button
