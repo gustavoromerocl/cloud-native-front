@@ -4,9 +4,9 @@ import { Component } from '@angular/core';
   selector: 'app-about',
   standalone: true,
   imports: [],
-  templateUrl: './about.component.html',
-  styleUrl: './about.component.scss'
+  templateUrl: './patient.component.html',
+  styleUrl: './patient.component.scss'
 })
-export class AboutComponent {
+export class PatientComponent {
 
 }

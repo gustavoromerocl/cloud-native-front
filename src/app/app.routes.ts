@@ -1,26 +1,32 @@
 import { Routes } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';
+import { MsalGuard } from '@azure/msal-angular';
+import { SessionResolver } from './resolvers/session.resolver';
 
 export const routes: Routes = [
   {
     path: '',
     component: LayoutComponent, // El layout es el componente principal
+    resolve: {
+      session: SessionResolver // Resuelve el session storage antes de cargar el layout
+    },
+    canActivate: [MsalGuard],
     children: [
       {
         path: '',
         loadComponent: () =>
-          import('./pages/home/home.component').then((m) => m.HomeComponent),
+          import('./pages/dashboard/dashboard.component').then((m) => m.DashboardComponent),
         pathMatch: 'full',
       },
       {
-        path: 'about',
+        path: 'patients',
         loadComponent: () =>
-          import('./pages/about/about.component').then((m) => m.AboutComponent),
+          import('./pages/patient/patient.component').then((m) => m.PatientComponent),
       },
       {
-        path: 'contact',
+        path: 'vital-signs',
         loadComponent: () =>
-          import('./pages/contact/contact.component').then((m) => m.ContactComponent),
+          import('./pages/vital-signs/vital-signs.component').then((m) => m.VitalSignsComponent),
       },
     ],
   },

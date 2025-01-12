@@ -1,24 +1,25 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav
     #sidenav
-    mode="side"
-    opened
+    [mode]="sidenavMode"
+    [(opened)]="isSidenavOpen"
     (openedChange)="onSidenavToggle($event)"
   >
     <mat-nav-list>
-      <a mat-list-item routerLink="/" routerLinkActive="active">Home</a>
-      <a mat-list-item routerLink="/about" routerLinkActive="active">About</a>
-      <a mat-list-item routerLink="/contact" routerLinkActive="active"
-        >Contact</a
+      <a mat-list-item routerLink="/" routerLinkActive="active">Dashboard</a>
+      <a mat-list-item routerLink="/patients" routerLinkActive="active"
+        >Pacientes</a
+      >
+      <a mat-list-item routerLink="/vital-signs" routerLinkActive="active"
+        >Signos vitales</a
       >
     </mat-nav-list>
+    <a mat-list-item (click)="logout()" class="logout-button">
+      <mat-icon>power_settings_new</mat-icon>
+      <span>Cerrar sesión</span>
+    </a>
   </mat-sidenav>
-  <mat-sidenav-content
-    [ngClass]="{
-      'sidenav-open': isSidenavOpen,
-      'sidenav-closed': !isSidenavOpen
-    }"
-  >
+  <mat-sidenav-content>
     <mat-toolbar color="primary" class="toolbar">
       <button
         mat-icon-button
@@ -27,7 +28,9 @@
       >
         <mat-icon>menu</mat-icon>
       </button>
-      <span class="app-title">Angular Sidenav App</span>
+      <ng-container *ngIf="user$ | async as user">
+        <span> Hola, {{ user.name }} </span>
+      </ng-container>
     </mat-toolbar>
     <div class="content-container">
       <router-outlet></router-outlet>
