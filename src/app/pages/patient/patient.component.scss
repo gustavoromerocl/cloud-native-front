@@ -1,0 +1,28 @@
+.patient-table {
+  margin: 16px;
+  overflow-x: auto;
+
+  table {
+    width: 100%;
+  }
+
+  th.mat-header-cell {
+    font-weight: bold;
+    text-align: left;
+  }
+
+  td.mat-cell,
+  th.mat-header-cell {
+    padding: 8px;
+    border-bottom: 1px solid #e0e0e0;
+  }
+}
+
+.drawer-container {
+  height: 100%; /* Asegura que el drawer ocupe toda la altura */
+}
+
+mat-sidenav {
+  width: 400px; /* Ancho del drawer */
+}
+

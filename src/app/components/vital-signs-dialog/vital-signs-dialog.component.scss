@@ -1,0 +1,61 @@
+mat-dialog-content {
+  padding: 16px;
+  background-color: #f5f5f5;
+  color: white;
+  border-radius: 8px;
+
+  mat-dialog-title {
+    color: white !important;
+  }
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+
+  th {
+    text-align: left;
+    padding: 8px;
+    background-color: #1976d2;
+    color: white;
+    font-weight: bold;
+  }
+
+  td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+  }
+}
+
+mat-dialog-title {
+  background-color: #1976d2;
+  color: white;
+  padding: 16px;
+  margin: -16px -16px 16px -16px;
+  border-radius: 8px 8px 0 0;
+}
+
+mat-dialog-actions {
+  padding: 8px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.close-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  color: var(--mat-primary); /* Utiliza el color primario del tema */
+  background-color: transparent;
+  border-radius: 50%;
+  transition: background-color 0.3s, color 0.3s; /* Transición suave */
+}
+
+.close-button:hover {
+  background-color: var(--mat-primary-hover); /* Color primario con opacidad */
+  color: #fff; /* Cambia el color del ícono a blanco */
+}
+
+.close-button mat-icon {
+  font-size: 24px; /* Tamaño del ícono */
+}
