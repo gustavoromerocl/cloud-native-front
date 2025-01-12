@@ -1,0 +1,106 @@
+<h2 mat-dialog-title>Crear Paciente</h2>
+<div mat-dialog-content>
+  <form [formGroup]="createPatientForm">
+    <!-- Nombre -->
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Nombre</mat-label>
+      <input matInput formControlName="firstName" />
+      <mat-error
+        *ngIf="createPatientForm.get('firstName')?.hasError('required')"
+      >
+        El nombre es obligatorio.
+      </mat-error>
+      <mat-error
+        *ngIf="createPatientForm.get('firstName')?.hasError('minlength')"
+      >
+        El nombre debe tener al menos 2 caracteres.
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Apellido -->
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Apellido</mat-label>
+      <input matInput formControlName="lastName" />
+      <mat-error
+        *ngIf="createPatientForm.get('lastName')?.hasError('required')"
+      >
+        El apellido es obligatorio.
+      </mat-error>
+      <mat-error
+        *ngIf="createPatientForm.get('lastName')?.hasError('minlength')"
+      >
+        El apellido debe tener al menos 2 caracteres.
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Edad -->
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Edad</mat-label>
+      <input matInput type="number" formControlName="age" />
+      <mat-error *ngIf="createPatientForm.get('age')?.hasError('required')">
+        La edad es obligatoria.
+      </mat-error>
+      <mat-error *ngIf="createPatientForm.get('age')?.hasError('min')">
+        La edad no puede ser negativa.
+      </mat-error>
+      <mat-error *ngIf="createPatientForm.get('age')?.hasError('max')">
+        La edad no puede ser mayor a 120.
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Fecha de ingreso -->
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Fecha de Ingreso</mat-label>
+      <input
+        matInput
+        [matDatepicker]="picker"
+        formControlName="admissionDate"
+      />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-error
+        *ngIf="createPatientForm.get('admissionDate')?.hasError('required')"
+      >
+        La fecha de ingreso es obligatoria.
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Número de cama -->
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Número de Cama</mat-label>
+      <input matInput formControlName="bedNumber" />
+      <mat-error
+        *ngIf="createPatientForm.get('bedNumber')?.hasError('required')"
+      >
+        El número de cama es obligatorio.
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Diagnóstico -->
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Diagnóstico</mat-label>
+      <input matInput formControlName="diagnosis" />
+      <mat-error
+        *ngIf="createPatientForm.get('diagnosis')?.hasError('required')"
+      >
+        El diagnóstico es obligatorio.
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Estado -->
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Estado</mat-label>
+      <input matInput formControlName="status" />
+      <mat-error *ngIf="createPatientForm.get('status')?.hasError('required')">
+        El estado es obligatorio.
+      </mat-error>
+    </mat-form-field>
+  </form>
+</div>
+
+<div mat-dialog-actions align="end">
+  <button mat-button (click)="cancel()">Cancelar</button>
+  <button mat-raised-button color="primary" (click)="createPatient()">
+    Crear
+  </button>
+</div>
