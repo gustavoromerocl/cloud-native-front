@@ -40,3 +40,22 @@ mat-dialog-actions {
   display: flex;
   justify-content: flex-end;
 }
+
+.close-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  color: var(--mat-primary); /* Utiliza el color primario del tema */
+  background-color: transparent;
+  border-radius: 50%;
+  transition: background-color 0.3s, color 0.3s; /* Transición suave */
+}
+
+.close-button:hover {
+  background-color: var(--mat-primary-hover); /* Color primario con opacidad */
+  color: #fff; /* Cambia el color del ícono a blanco */
+}
+
+.close-button mat-icon {
+  font-size: 24px; /* Tamaño del ícono */
+}
