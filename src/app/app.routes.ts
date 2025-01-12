@@ -19,9 +19,9 @@ export const routes: Routes = [
         pathMatch: 'full',
       },
       {
-        path: 'about',
+        path: 'patient',
         loadComponent: () =>
-          import('./pages/about/about.component').then((m) => m.AboutComponent),
+          import('./pages/patient/patient.component').then((m) => m.PatientComponent),
       },
       {
         path: 'contact',
