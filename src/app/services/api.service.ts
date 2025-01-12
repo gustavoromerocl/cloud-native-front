@@ -13,21 +13,21 @@ export class ApiService {
 
   // Método para obtener una lista de recursos
   getPosts(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.API_URL}/posts`);
+    return this.http.get<any[]>(`${this.API_URL}/patients`);
   }
 
   // Método para enviar datos al backend
   createPost(post: { title: string; body: string; userId: number }): Observable<any> {
-    return this.http.post(`${this.API_URL}/posts`, post);
+    return this.http.post(`${this.API_URL}/patients`, post);
   }
 
   // Método para actualizar un recurso
   updatePost(id: number, post: { title?: string; body?: string }): Observable<any> {
-    return this.http.put(`${this.API_URL}/posts/${id}`, post);
+    return this.http.put(`${this.API_URL}/patients/${id}`, post);
   }
 
   // Método para eliminar un recurso
   deletePost(id: number): Observable<any> {
-    return this.http.delete(`${this.API_URL}/posts/${id}`);
+    return this.http.delete(`${this.API_URL}/patients/${id}`);
   }
 }

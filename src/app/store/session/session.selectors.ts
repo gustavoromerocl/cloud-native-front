@@ -5,10 +5,10 @@ export const selectSessionState = createFeatureSelector<SessionState>('session')
 
 export const selectIsLoggedIn = createSelector(
   selectSessionState,
-  (state) => state.isLoggedIn
+  (state: SessionState) => state.isLoggedIn
 );
 
 export const selectUser = createSelector(
   selectSessionState,
-  (state) => state.user
+  (state: SessionState) => state.user
 );

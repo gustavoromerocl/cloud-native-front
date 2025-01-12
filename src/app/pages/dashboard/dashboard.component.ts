@@ -6,10 +6,10 @@ import { CommonModule } from '@angular/common';
   selector: 'app-home',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+  templateUrl: './dashboard.component.html',
+  styleUrl: './dashboard.component.scss'
 })
-export class HomeComponent {
+export class DashboardComponent {
   posts: any[] = [];
 
   constructor(private apiService: ApiService) {}
