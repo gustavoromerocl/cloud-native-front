@@ -7,6 +7,7 @@ import { VitalSignsDialogComponent } from '../../components/vital-signs-dialog/v
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { Patient } from '../../models/patient.model';
+import { CreatePatientDialogComponent } from '../../components/create-patient-dialog/create-patient-dialog.component';
 
 @Component({
   selector: 'app-patient',
@@ -68,5 +69,27 @@ export class PatientComponent implements OnInit {
         console.error('Error loading vital signs:', err);
       },
     });
-  }  
+  }
+
+  openCreatePatientDialog(): void {
+    const dialogRef = this.dialog.open(CreatePatientDialogComponent);
+  
+    dialogRef.afterClosed().subscribe((result: Patient | null) => {
+      if (result) {
+        // Llamar al servicio para agregar un nuevo paciente
+        this.patientService.addPatient(result).subscribe({
+          next: (newPatient) => {
+            // Actualiza el datasource correctamente
+            const patients = this.dataSource.data; // Obtén los datos actuales
+            patients.push(newPatient); // Agrega el nuevo paciente
+            this.dataSource.data = patients; // Actualiza el dataSource
+          },
+          error: (err) => {
+            console.error('Error adding patient:', err);
+          },
+        });
+      }
+    });
+  }
+  
 }
