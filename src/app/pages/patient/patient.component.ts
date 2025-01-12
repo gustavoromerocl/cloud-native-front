@@ -1,12 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatDrawer, MatSidenavModule } from '@angular/material/sidenav';
-import { Patient } from '../../store/patient/patient.model';
 import { PatientService } from '../../services/patient-api.service';
 import { CommonModule } from '@angular/common';
 import { VitalSignsDialogComponent } from '../../components/vital-signs-dialog/vital-signs-dialog.component';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
+import { Patient } from '../../models/patient.model';
 
 @Component({
   selector: 'app-patient',
