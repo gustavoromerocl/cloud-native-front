@@ -19,14 +19,14 @@ export const routes: Routes = [
         pathMatch: 'full',
       },
       {
-        path: 'patient',
+        path: 'patients',
         loadComponent: () =>
           import('./pages/patient/patient.component').then((m) => m.PatientComponent),
       },
       {
-        path: 'contact',
+        path: 'vital-signs',
         loadComponent: () =>
-          import('./pages/contact/contact.component').then((m) => m.ContactComponent),
+          import('./pages/vital-signs/vital-signs.component').then((m) => m.VitalSignsComponent),
       },
     ],
   },

@@ -4,9 +4,9 @@ import { Component } from '@angular/core';
   selector: 'app-contact',
   standalone: true,
   imports: [],
-  templateUrl: './contact.component.html',
-  styleUrl: './contact.component.scss'
+  templateUrl: './vital-signs.component.html',
+  styleUrl: './vital-signs.component.scss'
 })
-export class ContactComponent {
+export class VitalSignsComponent {
 
 }
