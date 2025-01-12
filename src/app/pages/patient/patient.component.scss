@@ -2,6 +2,12 @@
   margin: 16px;
   overflow-x: auto;
 
+  .header-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 16px;
+  }  
+
   table {
     width: 100%;
   }

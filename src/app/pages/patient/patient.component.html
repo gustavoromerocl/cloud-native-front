@@ -1,4 +1,13 @@
 <div class="patient-table">
+  <div class="header-actions">
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="openCreatePatientDialog()"
+    >
+      Crear Paciente
+    </button>
+  </div>
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
     <!-- ID Column -->
     <ng-container matColumnDef="id">
