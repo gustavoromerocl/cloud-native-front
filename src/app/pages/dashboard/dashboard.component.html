@@ -1,3 +1,37 @@
-<div>
-  <p>dashboard works!</p>
+<div class="dashboard">
+  <h2>Dashboard de Alertas y Pacientes</h2>
+
+  <div class="dashboard-metrics">
+    <mat-card class="metric-card">
+      <mat-card-title>Total Pacientes</mat-card-title>
+      <mat-card-content>
+        <h3>{{ totalPatients }}</h3>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="metric-card">
+      <mat-card-title>Total Alertas</mat-card-title>
+      <mat-card-content>
+        <h3>{{ totalAlerts }}</h3>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <mat-divider></mat-divider>
+
+  <div class="chart-container">
+    <mat-card>
+      <mat-card-title>Distribución de Niveles de Alerta</mat-card-title>
+      <mat-card-content>
+        <canvas
+          *ngIf="alertChartData"
+          baseChart
+          [data]="alertChartData"
+          [options]="alertChartOptions"
+          [type]="'doughnut'"
+        >
+        </canvas>
+      </mat-card-content>
+    </mat-card>
+  </div>
 </div>
