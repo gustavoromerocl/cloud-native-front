@@ -24,9 +24,9 @@ export const routes: Routes = [
           import('./pages/patient/patient.component').then((m) => m.PatientComponent),
       },
       {
-        path: 'vital-signs',
+        path: 'alerts',
         loadComponent: () =>
-          import('./pages/vital-signs/vital-signs.component').then((m) => m.VitalSignsComponent),
+          import('./pages/alert/alert.component').then((m) => m.AlertComponent),
       },
     ],
   },

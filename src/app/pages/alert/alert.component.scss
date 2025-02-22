@@ -1,0 +1,47 @@
+.alert-table {
+  margin: 16px;
+  overflow-x: auto;
+
+  h2 {
+    text-align: center;
+    margin-bottom: 16px;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  th.mat-header-cell {
+    font-weight: bold;
+    text-align: left;
+  }
+
+  td.mat-cell,
+  th.mat-header-cell {
+    padding: 8px;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  // Colores de niveles de alerta
+  .alert-level {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  .low {
+    background-color: #c8e6c9; // Verde suave
+    color: #2e7d32;
+  }
+
+  .medium {
+    background-color: #ffecb3; // Amarillo
+    color: #ff8f00;
+  }
+
+  .high {
+    background-color: #ffcdd2; // Rojo claro
+    color: #c62828;
+  }
+}

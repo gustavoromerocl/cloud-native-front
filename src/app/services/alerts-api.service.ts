@@ -7,12 +7,12 @@ import { Alert } from '../models/alert.model';
 @Injectable({
   providedIn: 'root',
 })
-export class PatientService {
-  private apiUrl = `${environment.patientApiUrl}/alerts`;
+export class AlertService {
+  private apiUrl = `${environment.apiUrl}/alerts`;
 
   constructor(private http: HttpClient) {}
 
-  getPatients(): Observable<Alert[]> {
+  getAlerts(): Observable<Alert[]> {
     return this.http.get<Alert[]>(this.apiUrl);
   }
 }

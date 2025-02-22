@@ -8,7 +8,7 @@ import { Patient } from '../models/patient.model';
   providedIn: 'root',
 })
 export class PatientService {
-  private apiUrl = `${environment.patientApiUrl}/patients`;
+  private apiUrl = `${environment.apiUrl}/patients`;
 
   constructor(private http: HttpClient) {}
 
